@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+    
+    <RelativeLayout 
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical"
+        android:background="#00000000">
+    
+        <Button
+            android:id="@+id/btn_base"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAllCaps="false"
+            android:onClick="testBase"
+            android:text="WebView加载网页"/>
+    
+        <Button
+            android:id="@+id/btn_scroll"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/btn_base"
+            android:textAllCaps="false"
+            android:onClick="testScroll"
+            android:text="WebView滚动监听"/>
+    
+        <Button
+            android:id="@+id/btn_error"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/btn_scroll"
+            android:textAllCaps="false"
+            android:onClick="testError"
+            android:text="WebView出错处理"/>
+    
+        <Button
+            android:id="@+id/btn_mode"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/btn_error"
+            android:textAllCaps="false"
+            android:onClick="testMode"
+            android:text="WebView Mode"/>
+    
+        <Button
+            android:id="@+id/btn_cache"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/btn_mode"
+            android:textAllCaps="false"
+            android:onClick="testCache"
+            android:text="WebView Cache"/>
+    
+        <Button
+            android:id="@+id/btn_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/btn_cache"
+            android:textAllCaps="false"
+            android:onClick="testTitle"
+            android:text="WebView 获取页面标题"/>
+    
+        <Button
+            android:id="@+id/btn_reload"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/btn_title"
+            android:textAllCaps="false"
+            android:onClick="onReload"
+            android:text="WebView 重新加载新页面"/>
+    
+        <Button
+            android:id="@+id/btn_cornor"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/btn_reload"
+            android:textAllCaps="false"
+            android:onClick="onCornor"
+            android:text="WebView 圆角"/>
+    
+        <Button
+            android:id="@+id/btn_cornor1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/btn_cornor"
+            android:textAllCaps="false"
+            android:onClick="onCornor1"
+            android:text="WebView 圆角1"/>
+    
+        <Button
+            android:id="@+id/btn_cornor2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/btn_cornor1"
+            android:textAllCaps="false"
+            android:onClick="onCornor2"
+            android:text="WebView 圆角2"/>
+    
+        <Button
+            android:id="@+id/btn_cornor3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/btn_cornor2"
+            android:textAllCaps="false"
+            android:onClick="onCornor3"
+            android:text="WebView 圆角3"/>
+    
+        <Button
+            android:id="@+id/btn_muti_webview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/btn_cornor3"
+            android:textAllCaps="false"
+            android:onClick="onMutiWebview"
+            android:text="ViewPager WebView"/>
+    
+        <Button
+            android:id="@+id/btn_muti_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/btn_muti_webview"
+            android:textAllCaps="false"
+            android:onClick="onMutiview"
+            android:text="ViewPager View"/>
+    
+        <Button
+            android:id="@+id/btn_js"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/btn_muti_view"
+            android:textAllCaps="false"
+            android:onClick="onJs"
+            android:text="android JS相互调用"/>
+        
+    </RelativeLayout>
+
+</ScrollView>

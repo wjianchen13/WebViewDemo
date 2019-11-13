@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#00000000">
+
+    <RelativeLayout
+        android:id="@+id/rlyt_webview"
+        android:layout_width="90dp"
+        android:layout_height="177dp">
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rlyt_webview_1"
+        android:layout_width="90dp"
+        android:layout_toRightOf="@id/rlyt_webview"
+        android:layout_marginLeft="20dp"
+        android:layout_height="177dp">
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_below="@id/rlyt_webview"
+        android:background="#ff00ff00"
+        android:layout_height="177dp">
+    </View>
+    
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="show"
+        android:textAllCaps="false"
+        android:onClick="onShow"/>
+
+</RelativeLayout>

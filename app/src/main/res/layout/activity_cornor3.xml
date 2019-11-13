@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#00000000">
+
+    <com.cold.webviewdemo.RoundAngleFrameLayout
+        android:id="@+id/rflt_webview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="100dp"
+        android:background="#ff00ff00"
+        android:visibility="gone">
+
+
+    </com.cold.webviewdemo.RoundAngleFrameLayout>
+
+</RelativeLayout>
