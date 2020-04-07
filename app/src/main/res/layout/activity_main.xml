@@ -133,6 +133,15 @@
             android:textAllCaps="false"
             android:onClick="onJs"
             android:text="android JS相互调用"/>
+
+        <Button
+            android:id="@+id/btn_progress"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/btn_js"
+            android:textAllCaps="false"
+            android:onClick="onProgress"
+            android:text="进度条WebView"/>
         
     </RelativeLayout>
 

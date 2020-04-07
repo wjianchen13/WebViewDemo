@@ -180,5 +180,16 @@ public class MainActivity extends AppCompatActivity {
         it.setClass(MainActivity.this, JsActivity.class);
         startActivity(it);
     }
+
+    /**
+     * 进度条WebView
+     * @param
+     * @return
+     */
+    public void onProgress(View v) {
+        Intent it = new Intent();
+        it.setClass(MainActivity.this, ProgressActivity.class);
+        startActivity(it);
+    }
     
 }

@@ -33,6 +33,7 @@
         <activity android:name=".muti.MutiWebViewActivity"/>
         <activity android:name=".muti1.MutiViewActivity"/>
         <activity android:name=".js.JsActivity"/>
+        <activity android:name=".ProgressActivity"/>
 
     </application>
 

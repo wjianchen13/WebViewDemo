@@ -93,7 +93,7 @@ public class JsActivity extends AppCompatActivity {
             
         });
 
-        webView.loadUrl(url2);
+        webView.loadUrl(url);
     }
     
 
