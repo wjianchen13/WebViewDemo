@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="live2_phone_public_chat_list_heigh_1">177dp</dimen><!--手机直播公聊列表高度-->
+    <dimen name="live2_phone_public_chat_list_heigh_2">190dp</dimen><!--手机直播公聊列表高度-->
 
     <dimen name="radius">15dp</dimen>
 

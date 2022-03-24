@@ -81,8 +81,11 @@ public class ProgressActivity extends AppCompatActivity {
 //        webView.setScrollBarStyle(View.SCROLLBARS_OUTSIDE_OVERLAY); // 滚动条在WebView内侧显示
 //        webView.setScrollBarStyle(View.SCROLLBARS_INSIDE_OVERLAY); // 滚动条在WebView外侧显示
 
-        webView.loadUrl("http://mp.weixin.qq.com/s?__biz=MzAwODQ5MTA2NQ==&mid=402389923&idx=1&sn=3c89c329e7bf83ce8ff2364726ebd6a7#rd");
+//        webView.loadUrl("http://mp.weixin.qq.com/s?__biz=MzAwODQ5MTA2NQ==&mid=402389923&idx=1&sn=3c89c329e7bf83ce8ff2364726ebd6a7#rd");
 //        webView.setInitialScale(80);
+//        webView.loadUrl("http://twww.95xiu.com/Anchorpkmatch/phone?inroom=1&anchor_id=30871457&is_android=1&uid=57287464&session_id=7511041cf8fb164ea33c02ad17a74306");
+//        webView.loadUrl("https://tapi.95xiu.com/web/new_active_web_view_match.php?v=3");
+        webView.loadUrl("https://twww.95xiu.com/Anchorpkmatch/phone?uid=0&session_id=&imei=edeca3df822893a&client_code_version=14&sys_sdk=27&packname=com.lokinfo.android.gamemarket.mmshow&version_code=2703&channel=ai00001&client_side=2&new_version=1&is_ios=2&is_intl_pack=0&app_name=95%E7%BE%8E%E5%A5%B3%E7%A7%80_debug");
     }
 
     /**

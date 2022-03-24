@@ -3,6 +3,9 @@ package com.cold.webviewdemo;
 import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
+import android.view.View;
+import android.view.animation.AlphaAnimation;
+import android.view.animation.Animation;
 import android.webkit.WebResourceRequest;
 import android.webkit.WebView;
 import android.widget.LinearLayout;
@@ -39,15 +42,47 @@ public class ProgressWebView extends WebView {
 
         @Override
         public void onProgressChanged(WebView view, int newProgress) {
+            System.out.println("================> onProgressChanged newProgress: " + newProgress);
             if (newProgress == 100) {
                 mProgressBar.setProgress(newProgress);
+                disappearProgress();
 //                mProgressBar.setVisibility(GONE);
             } else {
-                if (mProgressBar.getVisibility() == GONE)
+                if (mProgressBar.getVisibility() == GONE) {
+                    isDisappear = false;
                     mProgressBar.setVisibility(VISIBLE);
+                }
                 mProgressBar.setProgress(newProgress);
             }
             super.onProgressChanged(view, newProgress);
+        }
+    }
+
+    private boolean isDisappear = false;
+
+    private void disappearProgress() {
+        if(mProgressBar != null && !isDisappear) {
+            isDisappear = true;
+            AlphaAnimation disappearAnimation = new AlphaAnimation(1, 0);
+            disappearAnimation.setDuration(1000);
+            mProgressBar.startAnimation(disappearAnimation);
+            disappearAnimation.setAnimationListener(new Animation.AnimationListener() {
+
+                @Override
+                public void onAnimationStart(Animation animation) {
+                }
+
+                @Override
+                public void onAnimationRepeat(Animation animation) {
+                }
+
+                @Override
+                public void onAnimationEnd(Animation animation) {
+                    if(mProgressBar != null)
+                        mProgressBar.setVisibility(View.GONE);
+                }
+            });
+
         }
     }
 

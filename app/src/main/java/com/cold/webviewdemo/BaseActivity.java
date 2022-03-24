@@ -2,7 +2,9 @@ package com.cold.webviewdemo;
 
 import android.graphics.Bitmap;
 import android.graphics.Color;
+import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.webkit.WebChromeClient;
 import android.webkit.WebResourceError;
@@ -24,9 +26,12 @@ import androidx.appcompat.app.AppCompatActivity;
  * WebSettings
  * WebViewClient
  * WebChromeClient
+ * https://blog.csdn.net/cui130/article/details/85569426
  */
 public class BaseActivity extends AppCompatActivity {
 
+
+    
     private RelativeLayout rlytTest;
     private WebView webView = null;
     private TextView tvText = null;
@@ -43,17 +48,37 @@ public class BaseActivity extends AppCompatActivity {
         rlytTest.addView(webView);
         tvText = (TextView) findViewById(R.id.tv_test);
         WebSettings settings = webView.getSettings();
+        
 //        setWebViewSettings(settings);
         settings.setJavaScriptEnabled(true);
         webView.setBackgroundColor(Color.parseColor("#00000000"));
+
+//        webView.setWebViewClient(new WebViewClient() {
+//             @Override
+//             public boolean shouldOverrideUrlLoading(WebView view, String url) {
+//                 return false;
+//             }
+//
+//            @Override
+//            public boolean shouldOverrideUrlLoading(WebView view, WebResourceRequest request) {
+//                Uri uri = request.getUrl();
+//
+//                return shouldOverrideUrlLoading(uri.toString());
+//            }
+//            
+//            
+//            
+//        });
         webView.setWebViewClient(new WebViewClient() {
 
             @Override
             public boolean shouldOverrideUrlLoading(WebView view, WebResourceRequest request) {
-                if (webView != null)
-                    webView.loadUrl(request.getUrl().toString());
-                return true;
+//                if (webView != null)
+//                    webView.loadUrl(request.getUrl().toString());
+                return false;
             }
+
+
 
             @Override
             public void onPageStarted(WebView view, String url, Bitmap favicon) {
@@ -82,6 +107,8 @@ public class BaseActivity extends AppCompatActivity {
         webView.setScrollBarStyle(View.SCROLLBARS_OUTSIDE_OVERLAY); // 滚动条在WebView内侧显示
         webView.setScrollBarStyle(View.SCROLLBARS_INSIDE_OVERLAY); // 滚动条在WebView外侧显示
 
+//        webView.loadUrl("https://forms.gle/VfDGUU2uMLKiokRz6");
+        
         webView.loadUrl("http://www.qq.com");
 //        webView.setInitialScale(80);
     }

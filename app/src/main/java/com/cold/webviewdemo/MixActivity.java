@@ -1,6 +1,7 @@
 package com.cold.webviewdemo;
 
 import android.annotation.TargetApi;
+import android.content.Context;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
@@ -41,6 +42,10 @@ public class MixActivity extends AppCompatActivity {
     private WebView webView2 = null;
     private String url2 = "";
 
+    private RelativeLayout rlytWebView3;
+    private WebView webView3 = null;
+    private String url3 = "";
+
     private Handler mHandler = new Handler() {
         @Override
         public void handleMessage(Message msg) {
@@ -58,6 +63,12 @@ public class MixActivity extends AppCompatActivity {
                         webView2.setInitialScale(25);
                     }
                     break;
+                case 2:
+                    if(webView3 != null) {
+                        webView3.loadUrl(url3);
+//                        webView3.setInitialScale(25);
+                    }
+                    break;
                 case 404:
                 case 500:
 
@@ -72,6 +83,7 @@ public class MixActivity extends AppCompatActivity {
         setContentView(R.layout.activity_xxx);
         initWebView1();
         initWebView2();
+        initWebView3();
         rlytWebView2.setBackgroundColor(ContextCompat.getColor(this, R.color.colorAccent));
         rlytWebView2.setVisibility(View.INVISIBLE);
         
@@ -240,6 +252,98 @@ public class MixActivity extends AppCompatActivity {
         }).start();
     }
 
+    private void initWebView3() {
+        rlytWebView3 = (RelativeLayout) findViewById(R.id.rlyt_webview_2);
+        RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.MATCH_PARENT, RelativeLayout.LayoutParams.MATCH_PARENT);
+        webView3 = new WebView(MixActivity.this);
+        webView3.setLayoutParams(params);
+        webView3.getSettings().setJavaScriptEnabled(true);
+        webView3.getSettings().setBlockNetworkImage(false);
+        if(Build.VERSION.SDK_INT>= Build.VERSION_CODES.LOLLIPOP) {
+            webView3.getSettings().setMixedContentMode(WebSettings.MIXED_CONTENT_ALWAYS_ALLOW);
+        }
+//        // 设置可以支持缩放
+//        webView.getSettings().setSupportZoom(true);
+//        // 设置出现缩放工具
+//        webView.getSettings().setBuiltInZoomControls(true);
+//
+//        webView.getSettings().setDisplayZoomControls(true);
+
+        //扩大比例的缩放
+        webView.getSettings().setUseWideViewPort(true);
+        //自适应屏幕
+        webView.getSettings().setLayoutAlgorithm(WebSettings.LayoutAlgorithm.NARROW_COLUMNS);
+        webView.getSettings().setLoadWithOverviewMode(true);
+
+        webView.getSettings().setJavaScriptCanOpenWindowsAutomatically(true);
+        webView.getSettings().setJavaScriptEnabled(true);
+        webView.getSettings().setSupportZoom(true);
+        webView.getSettings().setBuiltInZoomControls(true);
+        webView.getSettings().setUseWideViewPort(true);
+        webView.getSettings().setCacheMode(WebSettings.LOAD_DEFAULT);
+        webView.getSettings().setLayoutAlgorithm(WebSettings.LayoutAlgorithm.SINGLE_COLUMN);
+        webView.getSettings().setLoadWithOverviewMode(true);
+        webView.getSettings().setAppCacheEnabled(true);
+        webView.getSettings().setDomStorageEnabled(true);
+
+        webView3.setVerticalScrollBarEnabled(false);
+        webView3.setHorizontalScrollBarEnabled(false);
+
+        rlytWebView3.addView(webView3);
+        webView3.setBackgroundColor(Color.parseColor("#00000000"));
+        webView3.setWebViewClient(new WebViewClient() {
+            // 断网或者网络连接超时
+            @SuppressWarnings("unchecked")
+            @Override
+            public void onReceivedError(WebView view, int errorCode, String description, String failingUrl) {
+                super.onReceivedError(view, errorCode, description, failingUrl);
+                if (errorCode == ERROR_HOST_LOOKUP || errorCode == ERROR_CONNECT || errorCode == ERROR_TIMEOUT) {
+
+                }
+            }
+
+            // 这个方法在6.0才出现
+            @TargetApi(android.os.Build.VERSION_CODES.M)
+            @Override
+            public void onReceivedHttpError(WebView view, WebResourceRequest request, WebResourceResponse errorResponse) {
+                super.onReceivedHttpError(view, request, errorResponse);
+                int statusCode = errorResponse.getStatusCode();
+                if (404 == statusCode || 500 == statusCode) {
+
+                }
+            }
+
+            //设置结束加载函数
+            @Override
+            public void onPageFinished(WebView view, String url) {
+                super.onPageFinished(view, url);
+
+                setWebViewLayoutParams();
+            }
+        });
+        webView3.setWebChromeClient(new WebChromeClient() {
+        });
+//        url = "http://blog.csdn.net/qq282330332/article/details/77487713";
+//        url2 = "https://tapi.95xiu.com/web/new_active_web_view_match.php?v=3";
+        url3 = "https://tapi.95xiu.com/web/oc_activity.php?activity_id=18&activity_name=test222";
+//            url2 = "http://tapi.95xiu.com/web/new_active_web_view_takecity.php?anchor_id=19253552";
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                int responseCode = getResponseCode(url3);
+                if (responseCode == 404 || responseCode == 500) {
+                    Message message = mHandler.obtainMessage();
+                    message.what = responseCode;
+                    mHandler.sendMessage(message);
+                } else {
+                    Message message = mHandler.obtainMessage();
+                    message.what = 2;
+                    mHandler.sendMessage(message);
+                }
+            }
+        }).start();
+    }
+
     /**
      * 获取请求状态码
      *
@@ -275,8 +379,11 @@ public class MixActivity extends AppCompatActivity {
     }
 
     private void setWebViewLayoutParams() {
-        float height = webView2.getContentHeight() * webView2.getScale();
+        float height = webView3.getContentHeight() * webView3.getScale();
         float density = getDensity();
+        System.out.println("===============> height: " + height);
+        System.out.println("===============> real: " + getResources().getDimensionPixelOffset(R.dimen.live2_phone_public_chat_list_heigh_2));
+        System.out.println("===============> dip2px: " + dip2px(MixActivity.this, 190));
         float webHeight = 0;
         if (density != 0) {
             webHeight = height / density;
@@ -286,6 +393,23 @@ public class MixActivity extends AppCompatActivity {
                 rlytWebView2.setLayoutParams(layoutParams);
             }
         }
+    }
+
+
+    /**
+     * 根据手机的分辨率从 dp 的单位 转成为 px(像素)
+     */
+    public static int dip2px(Context context, float dpValue) {
+        return (int) (dpValue * getDensity(context) + 0.5f);
+    }
+
+    public static float getDensity(Context context) {
+        try {
+            return context.getResources().getDisplayMetrics().density;
+        } catch (Exception e){
+            e.printStackTrace();
+        }
+        return 2.0f;
     }
 
 }
