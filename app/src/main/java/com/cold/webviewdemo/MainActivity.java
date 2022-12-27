@@ -5,6 +5,7 @@ import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 import android.view.View;
 
+import com.cold.webviewdemo.game.GameActivity;
 import com.cold.webviewdemo.js.JsActivity;
 import com.cold.webviewdemo.muti.MutiWebViewActivity;
 import com.cold.webviewdemo.muti1.MutiViewActivity;
@@ -189,6 +190,17 @@ public class MainActivity extends AppCompatActivity {
     public void onProgress(View v) {
         Intent it = new Intent();
         it.setClass(MainActivity.this, ProgressActivity.class);
+        startActivity(it);
+    }
+
+    /**
+     * 打地鼠游戏
+     * @param
+     * @return
+     */
+    public void onGopher(View v) {
+        Intent it = new Intent();
+        it.setClass(MainActivity.this, GameActivity.class);
         startActivity(it);
     }
     

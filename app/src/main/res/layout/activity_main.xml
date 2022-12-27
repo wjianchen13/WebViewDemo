@@ -142,7 +142,16 @@
             android:textAllCaps="false"
             android:onClick="onProgress"
             android:text="进度条WebView"/>
-        
+
+        <Button
+            android:id="@+id/btn_gopher"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/btn_js"
+            android:textAllCaps="false"
+            android:onClick="onGopher"
+            android:text="打地鼠游戏"/>
+
     </RelativeLayout>
 
 </ScrollView>
