@@ -1,7 +1,9 @@
 package com.cold.webviewdemo;
 
+import android.annotation.TargetApi;
 import android.graphics.Bitmap;
 import android.graphics.Color;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.webkit.WebChromeClient;
@@ -47,6 +49,7 @@ public class ProgressActivity extends AppCompatActivity {
         webView.setBackgroundColor(Color.parseColor("#00000000"));
         webView.setWebViewClient(new WebViewClient() {
 
+            @TargetApi(Build.VERSION_CODES.LOLLIPOP)
             @Override
             public boolean shouldOverrideUrlLoading(WebView view, WebResourceRequest request) {
                 if (webView != null)

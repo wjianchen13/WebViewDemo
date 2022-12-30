@@ -5,6 +5,7 @@ import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 import android.view.View;
 
+import com.cold.webviewdemo.corner.CornerWebViewActivity;
 import com.cold.webviewdemo.game.GameActivity;
 import com.cold.webviewdemo.js.JsActivity;
 import com.cold.webviewdemo.muti.MutiWebViewActivity;
@@ -202,6 +203,15 @@ public class MainActivity extends AppCompatActivity {
         Intent it = new Intent();
         it.setClass(MainActivity.this, GameActivity.class);
         startActivity(it);
+    }
+
+    /**
+     * 圆角WebView
+     * @param
+     * @return
+     */
+    public void onCorner(View v) {
+        startActivity(new Intent(MainActivity.this, CornerWebViewActivity.class));
     }
     
 }

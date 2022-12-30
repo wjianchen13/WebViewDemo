@@ -150,7 +150,17 @@
             android:layout_below="@id/btn_js"
             android:textAllCaps="false"
             android:onClick="onGopher"
-            android:text="打地鼠游戏"/>
+            android:text="打地鼠游戏回调测试"/>
+
+        <Button
+            android:id="@+id/btn_corner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/btn_js"
+            android:textAllCaps="false"
+            android:onClick="onCorner"
+            android:text="圆角WebView"/>
+
 
     </RelativeLayout>
 

@@ -35,6 +35,11 @@
         <activity android:name=".js.JsActivity"/>
         <activity android:name=".ProgressActivity"/>
         <activity android:name=".game.GameActivity"/>
+        <activity android:name=".corner.CornerWebViewActivity"/>
+
+
+
+
 
     </application>
 
