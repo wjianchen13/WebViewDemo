@@ -115,7 +115,17 @@ public class BaseActivity extends AppCompatActivity {
 //        webView.loadUrl("https://www.qq.com");
 //        webView.loadUrl("https://m.dana.id/d/ipg/inputphone?phoneNumber=&ipgForwardUrl=%2Fd%2Fportal%2Fcashier%2Fcheckout%3FbizNo%3D20220928111212800110166111268971805%26timestamp%3D1664352650796%26originSourcePlatform%3DIPG%26mid%3D216620000225427410011%26did%3D216650000271756233015%26sign%3DqehkG%252F2Iz%252BvrpIe8NS215urI54wTabLF7LqGMyyAl9cQivPiigSqzcMvymA4O6F%252BHwrO31wNAQmWjUl%252FZcalZ57GcYDIpxBfdQJCBDl3GqeVdESrVfiwysYMy5d8mElzeqvzVvrRCH6eaWLvit85nNYqiYJnAnGx3mbGRCTaDRJzVpFp3SQu753YfAq3k81DyvHPp0hDx3GNckd6614fExjhTr1E3R0n1Lq8m69l6kChMTBlOBgKJLlAiro3fVAyg%252BX%252Bo3Ms54MBzBVjUlfcpIXc78YWNML%252Fp9Umag5qrGuGltuTAJHKXKeR5Vdnl%252B5QAOw3OhcYouS5eNCRTMufFQ%253D%253D%26forceToH5%3Dfalse");
 //        webView.setInitialScale(80);
-        webView.loadUrl("https://tapi.wekitaus.com/agency_center/data");
+//        webView.loadUrl("https://tapi.wekitaus.com/agency_center/data");
+        webView.loadUrl("https://twww.ayomet.com/front/test/testA.html");
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (webView.canGoBack()) {
+            webView.goBack();
+        } else {
+            super.onBackPressed();
+        }
     }
 
     /**

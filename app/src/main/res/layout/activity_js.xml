@@ -40,6 +40,24 @@
             android:onClick="onCallJsArgs"/>
 
         <TextView
+            android:layout_width="180dp"
+            android:layout_height="30dp"
+            android:background="@drawable/bg_button"
+            android:text="隐藏webview"
+            android:gravity="center"
+            android:layout_marginTop="10dp"
+            android:onClick="onHide"/>
+
+        <TextView
+            android:layout_width="180dp"
+            android:layout_height="30dp"
+            android:background="@drawable/bg_button"
+            android:text="显示webview"
+            android:gravity="center"
+            android:layout_marginTop="10dp"
+            android:onClick="onShow"/>
+
+        <TextView
             android:id="@+id/tv_result"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

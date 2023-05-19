@@ -59,7 +59,15 @@ public class JsActivity extends AppCompatActivity {
         if(webView != null)
             webView.loadUrl("javascript:javacalljswith(" + "'Android传过来的参数'" + ")");
     }
-    
+
+    public void onHide(View v) {
+        rlytTest.setVisibility(View.GONE);
+    }
+
+    public void onShow(View v) {
+        rlytTest.setVisibility(View.VISIBLE);
+    }
+
     public void setResult(String result) {
         if(tvResult != null)
             tvResult.setText(result);
