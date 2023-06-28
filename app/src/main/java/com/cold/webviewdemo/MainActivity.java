@@ -8,6 +8,7 @@ import android.view.View;
 import com.cold.webviewdemo.corner.CornerWebViewActivity;
 import com.cold.webviewdemo.game.GameActivity;
 import com.cold.webviewdemo.js.JsActivity;
+import com.cold.webviewdemo.local.LocalActivity;
 import com.cold.webviewdemo.muti.MutiWebViewActivity;
 import com.cold.webviewdemo.muti1.MutiViewActivity;
 
@@ -213,5 +214,14 @@ public class MainActivity extends AppCompatActivity {
     public void onCorner(View v) {
         startActivity(new Intent(MainActivity.this, CornerWebViewActivity.class));
     }
-    
+
+    /**
+     * WebView 加载本地Html
+     * @param
+     * @return
+     */
+    public void onLocal(View v) {
+        startActivity(new Intent(MainActivity.this, LocalActivity.class));
+    }
+
 }

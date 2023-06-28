@@ -161,6 +161,14 @@
             android:onClick="onCorner"
             android:text="圆角WebView"/>
 
+        <Button
+            android:id="@+id/btn_local"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/btn_corner"
+            android:textAllCaps="false"
+            android:onClick="onLocal"
+            android:text="WebView 加载本地Html"/>
 
     </RelativeLayout>
 

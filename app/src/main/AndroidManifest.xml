@@ -36,7 +36,7 @@
         <activity android:name=".ProgressActivity"/>
         <activity android:name=".game.GameActivity"/>
         <activity android:name=".corner.CornerWebViewActivity"/>
-
+        <activity android:name=".local.LocalActivity"/>
 
 
 
