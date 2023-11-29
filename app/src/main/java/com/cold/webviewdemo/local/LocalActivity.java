@@ -2,6 +2,7 @@ package com.cold.webviewdemo.local;
 
 import android.annotation.TargetApi;
 import android.graphics.Color;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.webkit.WebResourceRequest;
@@ -31,6 +32,7 @@ public class LocalActivity extends AppCompatActivity {
      * /data/data/0/com.cold.webviewdemo/files/
      */
     private String mFilesPath;
+    private String mFilesPath1;
     private RelativeLayout rlytTest;
     private WebView webView = null;
     private TextView tvResult;
@@ -40,9 +42,10 @@ public class LocalActivity extends AppCompatActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mFilesPath = getFilesDir().getAbsolutePath() + File.separator + "test.html";
-
         setContentView(R.layout.activity_local);
+        mFilesPath = getFilesDir().getAbsolutePath() + File.separator + "test.html";
+        mFilesPath1 = getFilesDir().getAbsolutePath() + File.separator + "web-mobile" + File.separator + "index.html";
+
         tvResult = findViewById(R.id.tv_result);
         initWebView();
     }
@@ -84,6 +87,10 @@ public class LocalActivity extends AppCompatActivity {
         settings.setSupportZoom(true);
         //与js交互必须设置
         settings.setJavaScriptEnabled(true);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+            settings.setAllowFileAccessFromFileURLs(true); //通过 file mUrl 加载的 Javascript 读取其他的本地文件
+            settings.setAllowUniversalAccessFromFileURLs(true);//
+        }
         webView.addJavascriptInterface(new LocalDispatcher(this),"android");
 
         webView.setBackgroundColor(Color.parseColor("#00000000"));
@@ -98,7 +105,10 @@ public class LocalActivity extends AppCompatActivity {
 
         });
 
-        webView.loadUrl(url);
+//        webView.loadUrl("file://" + mFilesPath);
+
+        webView.loadUrl(/*"file://" + */mFilesPath);
+
     }
 
 }

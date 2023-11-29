@@ -116,7 +116,10 @@ public class BaseActivity extends AppCompatActivity {
 //        webView.loadUrl("https://m.dana.id/d/ipg/inputphone?phoneNumber=&ipgForwardUrl=%2Fd%2Fportal%2Fcashier%2Fcheckout%3FbizNo%3D20220928111212800110166111268971805%26timestamp%3D1664352650796%26originSourcePlatform%3DIPG%26mid%3D216620000225427410011%26did%3D216650000271756233015%26sign%3DqehkG%252F2Iz%252BvrpIe8NS215urI54wTabLF7LqGMyyAl9cQivPiigSqzcMvymA4O6F%252BHwrO31wNAQmWjUl%252FZcalZ57GcYDIpxBfdQJCBDl3GqeVdESrVfiwysYMy5d8mElzeqvzVvrRCH6eaWLvit85nNYqiYJnAnGx3mbGRCTaDRJzVpFp3SQu753YfAq3k81DyvHPp0hDx3GNckd6614fExjhTr1E3R0n1Lq8m69l6kChMTBlOBgKJLlAiro3fVAyg%252BX%252Bo3Ms54MBzBVjUlfcpIXc78YWNML%252Fp9Umag5qrGuGltuTAJHKXKeR5Vdnl%252B5QAOw3OhcYouS5eNCRTMufFQ%253D%253D%26forceToH5%3Dfalse");
 //        webView.setInitialScale(80);
 //        webView.loadUrl("https://tapi.wekitaus.com/agency_center/data");
-        webView.loadUrl("https://twww.ayomet.com/front/test/testA.html");
+//        webView.loadUrl("https://twww.ayomet.com/front/test/testA.html");
+
+//        webView.loadUrl("https://twww.ayomet.com/m/anchor/register?uid=912350590&myUid=912350590&ticket=4c143cf62b38acac62f4b383219df068&os=android&osVersion=10&appid=xchat&ispType=4&netType=2&model=M2006C3LC&appVersion=3.3.9&appCode=339&deviceId=495a94f4-c7b4-3f74-a1b2-1617127891a9&channel=test001&appName=xml&lang=en_US&timeZone=%2B8.0&shuMengId=DuicqW4Y7c5cF%2FC7vVnJb%2F5TG%2BmTO3EgtjdY7ZwdFyFXxGqP%2BIzRXCKPv8PcvTu4%2FVjAtOCryNNMjpWkrrwj%2BHzg&packName=com.ayome.sg&clientVersionCode=14&vProStore=14&ayome_id=48079749");
+        webView.loadUrl("https://www.kpay.com.kw/kpg/paymentpage.htm?PaymentID=101326542000106139#d");
     }
 
     @Override

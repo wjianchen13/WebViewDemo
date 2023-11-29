@@ -82,6 +82,10 @@
             }
         }
 
+## 参考文档
+Android WebView 缓存相关
+https://www.jianshu.com/p/ce9d7a431057
+
 ## license
 
     Copyright 2019 wjianchen13

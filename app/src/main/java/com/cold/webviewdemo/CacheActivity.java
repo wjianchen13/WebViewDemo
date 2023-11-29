@@ -131,7 +131,7 @@ public class CacheActivity extends AppCompatActivity {
         webView.setScrollBarStyle(View.SCROLLBARS_OUTSIDE_OVERLAY); // 滚动条在WebView内侧显示
         webView.setScrollBarStyle(View.SCROLLBARS_INSIDE_OVERLAY); // 滚动条在WebView外侧显示
 
-        webView.loadUrl("http://www.qq.com");
+        webView.loadUrl("https://www.qq.com");
 
 ////        tv_topbar_title = (TextView) findViewById(R.id.tv_topbar_title);
 //        rlytTest = (RelativeLayout) findViewById(R.id.rlyt_webview);
@@ -225,7 +225,11 @@ public class CacheActivity extends AppCompatActivity {
 //                    WebSettings.LOAD_CACHE_ELSE_NETWORK);
 //        }
 
-
+        // 缓存模式
+//        LOAD_DEFAULT：使用默认的缓存模式，即按照网站的缓存策略来加载网页。
+//        LOAD_NO_CACHE：不使用缓存，每次都重新从网络上获取数据。
+//        LOAD_CACHE_ONLY：只使用缓存，不从网络上获取数据。
+//        LOAD_CACHE_ELSE_NETWORK：会先使用缓存数据，如果缓存数据过期了再从网络上获取
         webView.getSettings().setCacheMode(WebSettings.LOAD_DEFAULT);  //设置 缓存模式
         webView.getSettings().setDomStorageEnabled(true); // 开启 DOM storage API 功能
         webView.getSettings().setDatabaseEnabled(true); //开启 database storage API 功能
