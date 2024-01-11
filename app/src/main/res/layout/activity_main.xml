@@ -170,6 +170,17 @@
             android:onClick="onLocal"
             android:text="WebView 加载本地Html"/>
 
+        <Button
+            android:id="@+id/btn_cache_webview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/btn_local"
+            android:textAllCaps="false"
+            android:onClick="onCacheWebView"
+            android:text="缓存 WebView"/>
+
+
+
     </RelativeLayout>
 
 </ScrollView>

@@ -5,6 +5,7 @@ import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 import android.view.View;
 
+import com.cold.webviewdemo.cache_webview.CacheWebViewActivity;
 import com.cold.webviewdemo.corner.CornerWebViewActivity;
 import com.cold.webviewdemo.game.GameActivity;
 import com.cold.webviewdemo.js.JsActivity;
@@ -222,6 +223,15 @@ public class MainActivity extends AppCompatActivity {
      */
     public void onLocal(View v) {
         startActivity(new Intent(MainActivity.this, LocalActivity.class));
+    }
+
+    /**
+     * 缓存 WebView
+     * @param
+     * @return
+     */
+    public void onCacheWebView(View v) {
+        startActivity(new Intent(MainActivity.this, CacheWebViewActivity.class));
     }
 
 }

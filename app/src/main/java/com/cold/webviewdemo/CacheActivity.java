@@ -132,6 +132,7 @@ public class CacheActivity extends AppCompatActivity {
         webView.setScrollBarStyle(View.SCROLLBARS_INSIDE_OVERLAY); // 滚动条在WebView外侧显示
 
         webView.loadUrl("https://www.qq.com");
+//        webView.loadUrl("https://www.ayomet.com/m/activity/activity");
 
 ////        tv_topbar_title = (TextView) findViewById(R.id.tv_topbar_title);
 //        rlytTest = (RelativeLayout) findViewById(R.id.rlyt_webview);

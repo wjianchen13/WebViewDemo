@@ -37,7 +37,7 @@
         <activity android:name=".game.GameActivity"/>
         <activity android:name=".corner.CornerWebViewActivity"/>
         <activity android:name=".local.LocalActivity"/>
-
+        <activity android:name=".cache_webview.CacheWebViewActivity"/>
 
 
 
