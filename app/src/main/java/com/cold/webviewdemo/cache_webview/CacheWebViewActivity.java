@@ -52,6 +52,11 @@ public class CacheWebViewActivity extends AppCompatActivity {
         settings.setDomStorageEnabled(true);
         settings.setTextZoom(100);
         settings.setUseWideViewPort(true);
+
+//     settings.setServiceWorkerEnabled(true);
+//     settings.setAppCacheEnabled(true);
+//     settings.setAppCachePath(BaseApp.getInstance().getFilesDir().getAbsolutePath());
+
         webView.setBackgroundColor(Color.parseColor("#00000000"));
 
 //        webView.setWebViewClient(new WebViewClient() {

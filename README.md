@@ -86,6 +86,9 @@
 Android WebView 缓存相关
 https://www.jianshu.com/p/ce9d7a431057
 
+Android13 适配指南
+https://blog.csdn.net/as425017946/article/details/127530660
+
 ## license
 
     Copyright 2019 wjianchen13
