@@ -23,7 +23,8 @@
         <activity android:name=".ScrollActivity"/>
         <activity android:name=".ErrorActivity"/>
         <activity android:name=".MixActivity"/>
-        <activity android:name=".CacheActivity"/>
+        <activity android:name=".clean_cache.CacheActivity"/>
+        <activity android:name=".clean_cache.CacheMainActivity"/>
         <activity android:name=".TitleActivity"/>
         <activity android:name=".ReloadActivity"/>
         <activity android:name=".CornorActivity"/>

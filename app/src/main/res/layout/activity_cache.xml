@@ -5,10 +5,22 @@
     android:orientation="vertical"
     android:background="#00000000">
 
+    <Button
+        android:id="@+id/btn_test1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textAllCaps="false"
+        android:text="清除缓存"
+        android:onClick="onTest1"
+        />
+
     <RelativeLayout
         android:id="@+id/rlyt_webview"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginTop="10dp"
+        android:layout_below="@id/btn_test1"
         >
     </RelativeLayout>
 

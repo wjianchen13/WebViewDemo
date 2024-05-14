@@ -6,6 +6,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.view.View;
 
 import com.cold.webviewdemo.cache_webview.CacheWebViewActivity;
+import com.cold.webviewdemo.clean_cache.CacheActivity;
+import com.cold.webviewdemo.clean_cache.CacheMainActivity;
 import com.cold.webviewdemo.corner.CornerWebViewActivity;
 import com.cold.webviewdemo.game.GameActivity;
 import com.cold.webviewdemo.js.JsActivity;
@@ -82,7 +84,7 @@ public class MainActivity extends AppCompatActivity {
      */
     public void testCache(View v) {
         Intent it = new Intent();
-        it.setClass(MainActivity.this, CacheActivity.class);
+        it.setClass(MainActivity.this, CacheMainActivity.class);
         startActivity(it);
     }
 

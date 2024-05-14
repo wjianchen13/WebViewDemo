@@ -32,6 +32,9 @@ public class CacheWebViewActivity extends AppCompatActivity {
     private WebView webView = null;
     private Button btnText = null;
 
+    private String mUrl = "https://twww.ayomet.com/m/cp/cpData?appWebviewStyle=100&appWebviewFullScreenHeight=83&uid=913458256&myUid=913458256&ticket=02ed4dc37627dc24a2cba92a4c2eabba&os=android&osVersion=13&appid=xchat&ispType=4&netType=2&model=M2012K10C&appVersion=3.6.9_debug&appCode=369&deviceId=90f06b70-6932-3a83-a095-af9aaf1721ef&channel=gf00001&appName=xml&lang=en_US&timeZone=%2B8.0&shuMengId=DUo4WNCSZYYdzacFXc49EcOK-EPwNO-QNk49&packName=com.ayome.sg&clientVersionCode=52&vProStore=52&download=false&ayome_id=74368355";
+
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -109,7 +112,7 @@ public class CacheWebViewActivity extends AppCompatActivity {
         webView.setVerticalScrollBarEnabled(true); // 垂直不显示
         webView.setScrollBarStyle(View.SCROLLBARS_OUTSIDE_OVERLAY); // 滚动条在WebView内侧显示
         webView.setScrollBarStyle(View.SCROLLBARS_INSIDE_OVERLAY); // 滚动条在WebView外侧显示
-        webView.loadUrl("https://www.kpay.com.kw/kpg/paymentpage.htm?PaymentID=101326542000106139#d");
+        webView.loadUrl(mUrl);
         mWebView = webView;
     }
 
@@ -127,6 +130,7 @@ public class CacheWebViewActivity extends AppCompatActivity {
             Toast.makeText(this, "mWebView == null", Toast.LENGTH_SHORT).show();
         }
     }
+
 
 
 }

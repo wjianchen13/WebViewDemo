@@ -1,20 +1,31 @@
-package com.cold.webviewdemo;
+package com.cold.webviewdemo.clean_cache;
 
+import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.os.Environment;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
+import android.webkit.CookieManager;
 import android.webkit.JsPromptResult;
 import android.webkit.JsResult;
+import android.webkit.ServiceWorkerController;
 import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
+import android.webkit.WebStorage;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.cold.webviewdemo.MainActivity;
+import com.cold.webviewdemo.R;
+import com.cold.webviewdemo.utils.FileUtils;
 
 import java.io.File;
 
@@ -31,23 +42,17 @@ public class CacheActivity extends AppCompatActivity {
     private static final String APP_CACAHE_DIRNAME = "/webcache";
     private TextView tvText = null;
     private WebView webView;
-    private String url;
+    private String mUrl = "https://twww.ayomet.com/m/cp/cpData?appWebviewStyle=100&appWebviewFullScreenHeight=83&uid=913458256&myUid=913458256&ticket=02ed4dc37627dc24a2cba92a4c2eabba&os=android&osVersion=13&appid=xchat&ispType=4&netType=2&model=M2012K10C&appVersion=3.6.9_debug&appCode=369&deviceId=90f06b70-6932-3a83-a095-af9aaf1721ef&channel=gf00001&appName=xml&lang=en_US&timeZone=%2B8.0&shuMengId=DUo4WNCSZYYdzacFXc49EcOK-EPwNO-QNk49&packName=com.ayome.sg&clientVersionCode=52&vProStore=52&download=false&ayome_id=74368355";
     private RelativeLayout rlytTest;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cache);
-
-        //url:http://m.dianhua.cn/detail/31ccb426119d3c9eaa794df686c58636121d38bc?apikey=jFaWGVHdFVhekZYWTBWV1ZHSkZOVlJWY&app=com.yulore.yellowsdk_ios&uid=355136051337627
-        url = "http://www.qq.com";
         findView();
     }
 
     private void findView() {
-
-        setContentView(R.layout.activity_cache);
-
         rlytTest = (RelativeLayout) findViewById(R.id.rlyt_webview);
         RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.MATCH_PARENT, RelativeLayout.LayoutParams.MATCH_PARENT);
         webView = new WebView(getApplicationContext());
@@ -57,7 +62,7 @@ public class CacheActivity extends AppCompatActivity {
         tvText = (TextView) findViewById(R.id.tv_test);
         WebSettings settings = webView.getSettings();
         setWebViewSettings(settings);
-        initWebView1();
+//        initWebView1();
         webView.setBackgroundColor(Color.parseColor("#00000000"));
         webView.setWebViewClient(new WebViewClient() {
 
@@ -74,7 +79,7 @@ public class CacheActivity extends AppCompatActivity {
 
                 Log.i(TAG, "intercept url="+url);
 
-                webview.loadUrl(url);
+//                webview.loadUrl(url);
 
                 return true;
             }
@@ -131,7 +136,7 @@ public class CacheActivity extends AppCompatActivity {
         webView.setScrollBarStyle(View.SCROLLBARS_OUTSIDE_OVERLAY); // 滚动条在WebView内侧显示
         webView.setScrollBarStyle(View.SCROLLBARS_INSIDE_OVERLAY); // 滚动条在WebView外侧显示
 
-        webView.loadUrl("https://www.qq.com");
+        webView.loadUrl(mUrl);
 //        webView.loadUrl("https://www.ayomet.com/m/activity/activity");
 
 ////        tv_topbar_title = (TextView) findViewById(R.id.tv_topbar_title);
@@ -389,6 +394,11 @@ public class CacheActivity extends AppCompatActivity {
         settings.setDomStorageEnabled(true);//开启DOM缓存，关闭的话H5自身的一些操作是无效的
         settings.setCacheMode(WebSettings.LOAD_DEFAULT);
 
+        settings.setJavaScriptEnabled(true);
+//        settings.setDomStorageEnabled(true);
+//        settings.setTextZoom(100);
+//        settings.setUseWideViewPort(true);
+
 
 //        settings.setCacheMode(WebSettings.LOAD_DEFAULT);
 //        // 设置webview加载页面内容编码
@@ -434,6 +444,50 @@ public class CacheActivity extends AppCompatActivity {
 //        settings.setDisplayZoomControls(false);
 //        // 设置字体大小
 //        settings.setTextZoom(150);
+    }
+
+    /**
+     * 清除WebView的缓存
+     * @param v
+     */
+    public void onTest1(View v) {
+//        clearCache(this);
+    }
+
+    public static void clearCache(Context context) {
+        if (context == null) {
+            return;
+        }
+        //清理Webview缓存数据库
+        context.deleteDatabase("webview.db");
+        context.deleteDatabase("webviewCache.db");
+
+        // 清除缓存
+        android.webkit.WebView webView = new android.webkit.WebView(context);
+        webView.clearCache(true);
+        webView.clearHistory();
+        webView.clearFormData();
+
+        // 清除存储
+        WebStorage.getInstance().deleteAllData();
+
+        // 清除Cookie
+        CookieManager.getInstance().removeAllCookies(null);
+        CookieManager.getInstance().flush();
+//        context.getExternalFilesDir(Environment.DIRECTORY_PICTURES);
+        File cacheDirFile = context.getCacheDir();
+        if (cacheDirFile != null) {
+            String filePath = cacheDirFile.getParent();
+            if(!TextUtils.isEmpty(filePath)) {
+                // 删除应用的缓存
+                FileUtils.deleteAllInDir(filePath + "/app_webview");
+                // 删除应用的缓存
+                FileUtils.deleteAllInDir(cacheDirFile.getAbsoluteFile() + "/WebView");
+            }
+        }
+
+//        ServiceWorkerController controller;
+//        controller.
     }
 
 }
